@@ -1,1 +1,1 @@
-# School
+# School Programming Assignments for Classes

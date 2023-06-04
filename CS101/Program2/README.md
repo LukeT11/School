@@ -1,0 +1,2 @@
+# Program Two
+Greedy Dice game. User versus Computer. On players turn, simulate 3 randoms coin flips. Any Heads, has player hold or flip. Hold moves total to player's score, flip adds to total pot and goes again. If all 3 tails, then next player's turn. First to 20 points wins. 
