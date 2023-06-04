@@ -1,0 +1,9 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Project4.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Source.cpp
+C:\Users\Luke\Documents\School\GitHub School Repo\School\CS303\Project2\Project2\Project4\MorseCodeTree.h(47,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Luke\Documents\School\GitHub School Repo\School\CS303\Project2\Project2\Project4\MorseCodeTree.h(72,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Luke\Documents\School\GitHub School Repo\School\CS303\Project2\Project2\Project4\MorseCodeTree.h(98,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Luke\Documents\School\GitHub School Repo\School\CS303\Project2\Project2\Project4\MorseCodeTree.h(97,8): warning C4101: 'letter': unreferenced local variable
+C:\Users\Luke\Documents\School\GitHub School Repo\School\CS303\Project2\Project2\Project4\MorseCodeTree.h(142,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Luke\Documents\School\GitHub School Repo\School\CS303\Project2\Project2\Project4\Source.cpp(8,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  Project4.vcxproj -> C:\Users\Luke\Documents\School\GitHub School Repo\School\CS303\Project2\Project2\Debug\Project2.exe

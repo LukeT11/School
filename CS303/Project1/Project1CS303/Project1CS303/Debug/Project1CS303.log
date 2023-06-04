@@ -1,0 +1,8 @@
+﻿  In-Postfix.cpp
+C:\Users\Luke\Documents\School\CS303\Project1CS303\Project1CS303\In-Postfix.cpp(14,26): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Luke\Documents\School\CS303\Project1CS303\Project1CS303\In-Postfix.cpp(86,52): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Luke\Documents\School\CS303\Project1CS303\Project1CS303\In-Postfix.cpp(133,52): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Luke\Documents\School\CS303\Project1CS303\Project1CS303\In-Postfix.cpp(370,16): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Source.cpp
+  Generating Code...
+  Project1CS303.vcxproj -> C:\Users\Luke\Documents\School\CS303\Project1CS303\Debug\Project1CS303.exe
