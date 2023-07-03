@@ -1,0 +1,15 @@
+Final Schedule 
+	SLA100A   Frank 119   11AM   Zeldin
+	SLA100B   Frank 119   10AM   Zeldin
+	SLA191A   Loft 310   12PM   Zeldin
+	SLA191B   Loft 310   11AM   Banks
+	SLA201   Beach 201   2PM   Banks
+	SLA291   Roman 201   1PM   Banks
+	SLA303   Beach 301   12PM   Tyler
+	SLA304   Frank 119   12PM   Banks
+	SLA394   Slater 003   11AM   Zeldin
+	SLA449   Beach 201   10AM   Tyler
+	SLA451   Roman 201   11AM   Tyler
+
+Fitness Value: 18.7
+
