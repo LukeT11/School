@@ -1,0 +1,210 @@
+/*create schema Project;
+USE Project;
+
+#Create Tables
+CREATE TABLE Albums (
+	AlbumID INTEGER AUTO_INCREMENT NOT NULL,
+    Title VARCHAR(160) NOT NULL,
+    ArtistID INTEGER  NOT NULL,    
+    PRIMARY KEY (AlbumID));
+    
+CREATE TABLE Employee (
+	EmployeeID int NOT NULL AUTO_INCREMENT, 
+    FirstName VARCHAR(30) NOT NULL, 
+    LastName VARCHAR(30) NOT NULL, 
+    SSN VARCHAR(11), 
+    Title VARCHAR(40), 
+    ReportsToID int, 
+    Store VARCHAR(30), 
+    BirthDate date, 
+    HireDate date, 
+    Address VARCHAR(30), 
+    City VARCHAR(30),
+    State VARCHAR(5), 
+    Country VARCHAR(40),
+    Zipcode VARCHAR(15), 
+    Email VARCHAR(60),
+    Phone VARCHAR(20),
+    PRIMARY KEY (EmployeeID));
+  
+CREATE TABLE Invoices (
+	InvoiceID int NOT NULL AUTO_INCREMENT, 
+    CustomerID INT NOT NULL, 
+    InvoiceDate datetime NOT NULL, 
+    BillingAddress VARCHAR(70), 
+    BillingCity VARCHAR(40), 
+    BillingState VARCHAR(40), 
+    BillingCountry VARCHAR(40), 
+    BillingPostalCode VARCHAR(10), 
+    Total numeric(10,2), 
+    PRIMARY KEY (InvoiceID));
+  
+CREATE TABLE Playlists (
+	PlaylistID int NOT NULL AUTO_INCREMENT, 
+    Name VARCHAR(120),
+    PRIMARY KEY (PlaylistID));
+  
+CREATE TABLE Artists (
+	ArtistID int NOT NULL AUTO_INCREMENT, 
+    Name VARCHAR(120),
+    PRIMARY KEY (ArtistID));
+  
+CREATE TABLE Genres (
+	GenreID int NOT NULL AUTO_INCREMENT, 
+    Name VARCHAR(120),
+    PRIMARY KEY (GenreID));
+  
+CREATE TABLE Media_Types (
+	MediaTypeID int NOT NULL AUTO_INCREMENT, 
+    Name VARCHAR(120),
+    PRIMARY KEY (MediaTypeID));
+  
+CREATE TABLE Tracks (
+	TrackID int NOT NULL AUTO_INCREMENT, 
+    Name VARCHAR(200) NOT NULL, 
+    AlbumID int, 
+    MediaTypeID int NOT NULL,
+    GenreID int,
+    Composer VARCHAR(220), 
+    Milliseconds int NOT NULL,
+    Bytes int,
+    UnitPrice numeric(10,2),
+    PRIMARY KEY (TrackID));
+  
+CREATE TABLE Customers (
+	CustomerID int NOT NULL AUTO_INCREMENT, 
+    FirstName VARCHAR(30), 
+    LastName VARCHAR(30), 
+    Company VARCHAR(80), 
+    Email VARCHAR(60), 
+    SupportRepID int, 
+    BirthDate date, 
+    Address VARCHAR(70), 
+    City VARCHAR(30),
+    State VARCHAR(2),
+    Country VARCHAR(40),
+    Zipcode VARCHAR(10), 
+    Phone VARCHAR(20),
+    PRIMARY KEY(CustomerID));
+
+CREATE TABLE Invoice_Items (
+	InvoiceLineID int NOT NULL AUTO_INCREMENT, 
+    InvoiceID int NOT NULL, 
+    TrackID int NOT NULL, 
+    UnitPrice numeric(10,2) NOT NULL,
+    Quantity int NOT NULL,
+    PRIMARY KEY (InvoiceLineID));
+
+CREATE TABLE Playlist_Track (
+	PlaylistID int NOT NULL AUTO_INCREMENT, 
+    TrackID int NOT NULL, 
+    PRIMARY KEY (PlaylistID, TrackID));
+    */
+    
+    
+    
+USE project;
+#Project Submission Items
+
+#Item 1 Add Following Records
+#Employee
+INSERT INTO employee (FirstName, LastName, SSN, Title, ReportsToID, BirthDate, HireDate,
+					  Address, City, State, Country, Zipcode, Email, Phone)
+Values ('Jason', 'Johnson', '133-59-2011', 'Director of Technology', 6, '1967-10-25', '2021-11-10', 
+		'15554 Hardee St', 'Oklahoma City', 'OK', 'USA', 73107, 'jjohnson@hotmail.com', '991-451-4458'),
+        ('Karen', 'Tiffany', '996-56-2554', 'Sales Council', 2, '1972-01-15', '2021-11-15',
+        '123 S Main', 'Omaha', 'NE', 'USA', 68114, 'karen.tiff72@gmail.com', '441-758-6985');
+        
+#Artist
+INSERT INTO artists (Name)
+VALUES ('Twenty-One Pilots'), ('Adele');
+
+#Genre
+INSERT INTO genres (Name)
+VALUES ('Country');
+
+#Album
+INSERT INTO albums (Title, ArtistID)
+VALUES ('Blurryface', (SELECT ArtistID FROM artists WHERE Name = 'Twenty-One Pilots')),
+	   ('25', (SELECT ArtistID FROM artists WHERE Name = 'Adele'));
+
+#Tracks
+INSERT INTO tracks (Name, AlbumID, MediaTypeID, GenreID, Composer, Milliseconds, Bytes, UnitPrice)
+VALUES ('Ride', (SELECT project.albums.AlbumID FROM albums, artists 
+		WHERE project.artists.Name = 'Twenty-One Pilots' AND project.artists.ArtistID = project.albums.ArtistID),
+		2, 4, 'Twenty-One Pilots', 214000, 9254879, 1.99),
+        ('Stressed Out', (SELECT project.albums.AlbumID FROM albums, artists 
+		WHERE project.artists.Name = 'Twenty-One Pilots' AND project.artists.ArtistID = project.albums.ArtistID),
+		2, 4, 'Twenty-One Pilots', 202000, 9458963, 1.99),
+        ('Hello', (SELECT project.albums.AlbumID FROM albums, artists 
+		WHERE project.artists.Name = 'Adele' AND project.artists.ArtistID = project.albums.ArtistID),
+		2, 9, 'Adele', 299000, 16658421, 2.99),
+        ('Send My Love', (SELECT project.albums.AlbumID FROM albums, artists 
+		WHERE project.artists.Name = 'Adele' AND project.artists.ArtistID = project.albums.ArtistID),
+		2, 9, 'Adele', 223000, 6658421, 1.99);
+
+
+#Item 2 Add Foreign Key Constraints
+
+#Additional Foreign Keys for project: aritsID for album, albumID for tracks, 
+#mediatype for tracks, genreID for tracks, playlistID for playlist_track, supportRepID for EmployeeID
+
+#FK ArtistID albums to artists
+ALTER TABLE project.albums ADD CONSTRAINT FK_Artists_ArtistID FOREIGN KEY
+(ArtistID) REFERENCES artists(ArtistID);
+
+#FK AlbumID tracks to albums
+ALTER TABLE project.tracks ADD CONSTRAINT FK_Albums_AlbumID FOREIGN KEY
+(AlbumID) REFERENCES albums(AlbumID);
+
+#FK MediaTypeID tracks to media_types
+ALTER TABLE project.tracks ADD CONSTRAINT FK_Media_Types_MediaTypeID FOREIGN KEY
+(MediaTypeID) REFERENCES media_types(MediaTypeID);
+
+#FK GenreID tracks to genres
+ALTER TABLE project.tracks ADD CONSTRAINT FK_Genres_GenreID FOREIGN KEY
+(GenreID) REFERENCES genres(GenreID);
+
+#FK PlaylistID playlist_track to playlists
+ALTER TABLE project.playlist_track ADD CONSTRAINT FK_Playlists_PlaylistID FOREIGN KEY
+(PlaylistID) REFERENCES playlists(PlaylistID);
+
+#FK SupportRepID customers to employee(EmployeeID)
+ALTER TABLE project.customers ADD CONSTRAINT FK_Employee_EmployeeID FOREIGN KEY
+(SupportRepID) REFERENCES employee(EmployeeID);
+
+
+#Item 3 New Table for Digital Media
+#Assumption using current tracks and new ones, so use TrackID to find which song with information.
+
+CREATE TABLE DigitalMedia (
+	TrackID int NOT NULL,
+	FileSize int NOT NULL,
+    ReleaseDate datetime NOT NULL,
+    SongLength int NOT NULL,
+    NumberOfDownloads int NOT NULL,
+    PRIMARY KEY (TrackID));
+
+
+#Item 4 Remove Some Data
+
+#Remove SSN from Employees
+ALTER TABLE project.employee
+DROP COLUMN SSN;
+
+#Remove Invoices for Mark Taylor
+DELETE FROM project.invoices
+USING project.invoices, project.customers
+WHERE project.customers.FirstName = 'Mark' AND project.customers.LastName = 'Taylor'
+	  AND project.customers.CustomerID = project.invoices.CustomerID;
+
+
+#Item 5 Change Part of Schema
+
+#Increase Invoices Billing Postal Code by 10.
+ALTER TABLE project.invoices
+MODIFY BillingPostalCode VARCHAR(20);
+
+#Increase Customer State Column to 6 Charcters.
+ALTER TABLE project.customers
+MODIFY State VARCHAR(6);

@@ -1,0 +1,101 @@
+create schema Project;
+USE Project;
+
+#Create Tables
+CREATE TABLE Albums (
+	AlbumID INTEGER AUTO_INCREMENT NOT NULL,
+    Title VARCHAR(160) NOT NULL,
+    ArtistID INTEGER  NOT NULL,    
+    PRIMARY KEY (AlbumID));
+    
+CREATE TABLE Employee (
+	EmployeeID int NOT NULL AUTO_INCREMENT, 
+    FirstName VARCHAR(30) NOT NULL, 
+    LastName VARCHAR(30) NOT NULL, 
+    SSN VARCHAR(11), 
+    Title VARCHAR(40), 
+    ReportsToID int, 
+    Store VARCHAR(30), 
+    BirthDate date, 
+    HireDate date, 
+    Address VARCHAR(30), 
+    City VARCHAR(30),
+    State VARCHAR(5), 
+    Country VARCHAR(40),
+    Zipcode VARCHAR(15), 
+    Email VARCHAR(60),
+    Phone VARCHAR(20),
+    PRIMARY KEY (EmployeeID));
+  
+CREATE TABLE Invoices (
+	InvoiceID int NOT NULL AUTO_INCREMENT, 
+    CustomerID INT NOT NULL, 
+    InvoiceDate datetime NOT NULL, 
+    BillingAddress VARCHAR(70), 
+    BillingCity VARCHAR(40), 
+    BillingState VARCHAR(40), 
+    BillingCountry VARCHAR(40), 
+    BillingPostalCode VARCHAR(10), 
+    Total numeric(10,2), 
+    PRIMARY KEY (InvoiceID));
+  
+CREATE TABLE Playlists (
+	PlaylistID int NOT NULL AUTO_INCREMENT, 
+    Name VARCHAR(120),
+    PRIMARY KEY (PlaylistID));
+  
+CREATE TABLE Artists (
+	ArtistID int NOT NULL AUTO_INCREMENT, 
+    Name VARCHAR(120),
+    PRIMARY KEY (ArtistID));
+  
+CREATE TABLE Genres (
+	GenreID int NOT NULL AUTO_INCREMENT, 
+    Name VARCHAR(120),
+    PRIMARY KEY (GenreID));
+  
+CREATE TABLE Media_Types (
+	MediaTypeID int NOT NULL AUTO_INCREMENT, 
+    Name VARCHAR(120),
+    PRIMARY KEY (MediaTypeID));
+  
+CREATE TABLE Tracks (
+	TrackID int NOT NULL AUTO_INCREMENT, 
+    Name VARCHAR(200) NOT NULL, 
+    AlbumID int, 
+    MediaTypeID int NOT NULL,
+    GenreID int,
+    Composer VARCHAR(220), 
+    Milliseconds int NOT NULL,
+    Bytes int,
+    UnitPrice numeric(10,2),
+    PRIMARY KEY (TrackID));
+  
+CREATE TABLE Customers (
+	CustomerID int NOT NULL AUTO_INCREMENT, 
+    FirstName VARCHAR(30), 
+    LastName VARCHAR(30), 
+    Company VARCHAR(80), 
+    Email VARCHAR(60), 
+    SupportRepID int, 
+    BirthDate date, 
+    Address VARCHAR(70), 
+    City VARCHAR(30),
+    State VARCHAR(2),
+    Country VARCHAR(40),
+    Zipcode VARCHAR(6), 
+    Phone VARCHAR(13),
+    PRIMARY KEY(CustomerID));
+
+CREATE TABLE Invoice_Items (
+	InvoiceLineID int NOT NULL AUTO_INCREMENT, 
+    InvoiceID int NOT NULL, 
+    TrackID int NOT NULL, 
+    UnitPrice numeric(10,2) NOT NULL,
+    Quantity int NOT NULL,
+    PRIMARY KEY (InvoiceLineID));
+
+CREATE TABLE Playlist_Track (
+	PlaylistID int NOT NULL AUTO_INCREMENT, 
+    TrackID int NOT NULL, 
+    PRIMARY KEY (PlaylistID, TrackID));
