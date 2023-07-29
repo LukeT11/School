@@ -1,2 +1,0 @@
-# Assignment Four
-Recursive Functions. Program starts with 13 tokens. Takes input for number of tokens trying to find and within number of turns. If the number is not the desired number, it will use a turn by reducing number of tokens in half if divisible by two or adding twenty-five tokens to the total and then repeating the process until the desired number of tokens is found or all turns are used up.
