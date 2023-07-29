@@ -1,2 +1,0 @@
-# Assignment One
-Greedy Dice game. User versus Computer. On players turn, rolls random die 1-6. If number isn't one, number is added to total pot and user can choose to roll again and try to keep adding to the pot or hold and add to overall total. If number equals one, its a 'Bust' and it goes to the next players turn. First to 50 wins.
