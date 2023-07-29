@@ -1,2 +1,2 @@
-# CS201
-C++ Assignments and Labs
+# C++ Assignments and Labs
+Assignments and Labs for C++ Class

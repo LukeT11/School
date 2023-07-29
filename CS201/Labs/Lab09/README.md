@@ -1,2 +1,0 @@
-# Lab09
-Takes input file for a list of books of a library. Takes another input file of ISBNs for books that have been checked in and checked out. Checks and outputs the books that are checked out to an output file.
