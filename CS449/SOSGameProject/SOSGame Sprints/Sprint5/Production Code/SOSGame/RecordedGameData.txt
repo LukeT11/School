@@ -1,0 +1,11 @@
+BoardSize:3,GameMode:GENERAL,PlayerOne:COMPUTER,PlayerTwo:COMPUTER
+Move:1,Turn:BLUEPLAYER,Row:0,Column:0,Letter:S
+Move:2,Turn:REDPLAYER,Row:0,Column:1,Letter:S
+Move:3,Turn:BLUEPLAYER,Row:1,Column:0,Letter:S
+Move:4,Turn:REDPLAYER,Row:1,Column:1,Letter:S
+Move:5,Turn:BLUEPLAYER,Row:0,Column:2,Letter:S
+Move:6,Turn:REDPLAYER,Row:1,Column:2,Letter:S
+Move:7,Turn:BLUEPLAYER,Row:2,Column:0,Letter:S
+Move:8,Turn:REDPLAYER,Row:2,Column:1,Letter:S
+Move:9,Turn:BLUEPLAYER,Row:2,Column:2,Letter:S
+Winner:DRAW
