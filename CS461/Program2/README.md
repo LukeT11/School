@@ -1,5 +1,5 @@
 # Program Two - Genetic Algorithm
-Genetic Algorithm Program that generates a 'Best Fit Schedule' based on the predefined Fitness Function and given a list of activities, facilitators and rooms information. 
+Genetic Algorithm used to build a space utilization schedule that generates a 'Best Fit Schedule' given a list of activities, facilitators and rooms information. 
 Assumptions:
  - Input files of "Activites", "Facilitators", "Rooms"
  - Ouput file of "BestScheduleResults" returns Final Schedules of Highest Fitness Score
